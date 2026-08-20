@@ -46,6 +46,7 @@
   "logo": "https://www.abloomtreecare.com.au/assets/img/abloom-logo.webp",
   "founder": { "@type": "Person", "name": "Jake DeFranceschi" },
   "priceRange": "$$",
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "58", "bestRating": "5" },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "849 Tallagandra Lane",
@@ -169,7 +170,7 @@
     </nav>
     <div class="nav-actions">
       <a class="nav-phone" href="tel:+61423838689">0423 838 689</a>
-      <a class="btn-cta" href="/contact/">Get a Free Quote</a>
+      <a class="btn-cta js-open-quote" href="/contact/">Get a Free Quote</a>
       <button class="nav-burger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -201,8 +202,9 @@
       <p class="eyebrow on-dark">Canberra · ACT · Surrounding NSW</p>
       <h1 class="dsp">Tree Removal <span class="hl">Canberra</span> by Qualified, Fully Insured Arborists</h1>
       <p class="hero-sub">Abloom Tree Care delivers safe, tidy tree removal in Canberra and the surrounding districts — backed by real arborist qualifications, full insurance and free fixed quotes. From single-tree removals to pruning, stump grinding and arborist reports, your trees are in careful hands.</p>
+      <a class="rating-badge" href="https://www.google.com/maps/search/?api=1&amp;query=Abloom%20Tree%20Care%20Sutton%20NSW" target="_blank" rel="noopener"><span class="rb-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span><strong>5.0</strong> from 58 Google reviews</span></a>
       <div class="hero-cta">
-        <a class="btn-lg btn-primary" href="/contact/">Get a Free Quote
+        <a class="btn-lg btn-primary js-open-quote" href="/contact/">Get a Free Quote
           <svg class="tick" viewBox="0 0 24 24" style="stroke:currentColor"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a class="btn-lg btn-ghost" href="tel:+61423838689">Call 0423 838 689</a>
@@ -218,7 +220,7 @@
       <img class="hero-photo" src="/assets/img/arborist-climbing-canberra-view.webp" alt="Abloom Tree Care arborist climbing a large gum tree overlooking Canberra bushland" width="1300" height="855" fetchpriority="high">
       <div class="hero-chip c1">
         <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.5 6.7L12 16.9 5.9 20.2l1.5-6.7L2.2 8.9l6.9-.6z"/></svg>
-        Rated by locals on Google
+        5.0 stars &middot; 58 Google reviews
       </div>
       <div class="hero-chip c2">
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4.5 8-11a8 8 0 10-16 0c0 6.5 8 11 8 11z"/><circle cx="12" cy="11" r="3"/></svg>
@@ -407,16 +409,38 @@
 </section>
 
 <!-- ============ REVIEWS ============ -->
-<section class="sec sec-alt">
+<section class="sec sec-alt" id="reviews">
   <div class="wrap">
     <div class="sec-head rv">
       <p class="eyebrow">Google Reviews</p>
-      <h2 class="dsp">Rated by Canberra locals on Google</h2>
-      <p>Don't take our word for it — read what homeowners across Canberra, Queanbeyan and the districts say about our work, then add your own after your job.</p>
+      <h2 class="dsp">Rated 5.0 stars by Canberra locals on Google</h2>
+      <div class="agg-rating"><span class="rb-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><strong>5.0</strong><span>from 58 Google reviews</span></div>
     </div>
-    <div class="rv">
+    <div class="rev-grid four">
+      <div class="review rv">
+        <div class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>&ldquo;We had Jake come out to clean up our hedge and couldn&rsquo;t be happier. The whole process was smooth and hassle free. Jake was friendly, professional and did an excellent job! We will be calling him again for any future work.&rdquo;</p>
+        <div class="who">Bell D<span>Hedge clean-up &middot; Google review</span></div>
+      </div>
+      <div class="review rv rv-d1">
+        <div class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>&ldquo;Jake was responsive, very professional and a knowledgeable arborist. He trimmed 4 large trees for us wonderfully and removed 5&ndash;6 large golden cypress pines, chipped on site. Really happy with the job and at a reasonable price. Can highly recommend!&rdquo;</p>
+        <div class="who">Shannon Dillon<span>Tree trimming &amp; removal &middot; Google review</span></div>
+      </div>
+      <div class="review rv">
+        <div class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>&ldquo;Jake and his team are great &mdash; really professional &mdash; did a great job, turned my tree into a work of art! They were polite, helpful and meticulous in preparation and clean up. Cannot recommend them enough.&rdquo;</p>
+        <div class="who">Penny Taylor<span>Tree pruning &middot; Google review</span></div>
+      </div>
+      <div class="review rv rv-d1">
+        <div class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>&ldquo;Abloom did a fantastic job to remove a very large tree close to our house. The quote was very reasonable and great communication, responding quickly to our questions. The work was done on time and professionally done by Jake and his team. I highly recommend Abloom for advice and all aspects of tree issues.&rdquo;</p>
+        <div class="who">Phil Wordsworth<span>Large tree removal &middot; Google Local Guide</span></div>
+      </div>
+    </div>
+    <div class="rv" style="margin-top:34px">
       <a class="btn-lg btn-solid" href="https://www.google.com/maps/search/?api=1&amp;query=Abloom%20Tree%20Care%20Sutton%20NSW" target="_blank" rel="noopener">
-        Read Our Google Reviews
+        Read All 58 Reviews on Google
         <svg class="tick" viewBox="0 0 24 24" style="stroke:currentColor"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
@@ -604,6 +628,52 @@
 </div>
 
 <script src="/assets/js/main.js" defer></script>
+
+<!-- Quote popup -->
+<div class="quote-modal" id="quote-modal" aria-hidden="true">
+  <div class="qm-backdrop" data-close-quote></div>
+  <div class="qm-dialog" role="dialog" aria-modal="true" aria-label="Request a free quote">
+    <button class="qm-close" type="button" data-close-quote aria-label="Close quote form"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <form class="quote-form js-quote" method="get" action="/thank-you/">
+      <h3>Request a free quote</h3>
+      <p class="qf-sub">We'll get back to you fast &mdash; usually the same day.</p>
+      <div class="f-row">
+        <div class="fld"><label for="fq-name">Full name</label><input id="fq-name" type="text" name="full_name" placeholder="Your name" autocomplete="name" required></div>
+        <div class="fld"><label for="fq-phone">Phone</label><input id="fq-phone" type="tel" name="phone" placeholder="Your phone number" autocomplete="tel" required></div>
+      </div>
+      <div class="f-row">
+        <div class="fld"><label for="fq-email">Email</label><input id="fq-email" type="email" name="email" placeholder="you@email.com" autocomplete="email"></div>
+        <div class="fld"><label for="fq-service">Service needed</label>
+          <select id="fq-service" name="service_needed">
+            <option>Tree removal</option>
+            <option>Tree pruning</option>
+            <option>Stump grinding</option>
+            <option>Hedge trimming</option>
+            <option>Emergency / storm damage</option>
+            <option>Arborist report / consultancy</option>
+            <option>Something else</option>
+          </select>
+        </div>
+      </div>
+      <div class="f-row">
+        <div class="fld"><label for="fq-address">Property address</label><input id="fq-address" type="text" name="property_address" placeholder="e.g. 12 Example St, Watson ACT" autocomplete="street-address"></div>
+        <div class="fld"><label for="fq-size">Property size</label>
+          <select id="fq-size" name="property_size">
+            <option>Standard suburban block</option>
+            <option>Small block / townhouse</option>
+            <option>Large block</option>
+            <option>Acreage / rural property</option>
+            <option>Commercial / strata site</option>
+          </select>
+        </div>
+      </div>
+      <div class="fld"><label for="fq-msg">Job notes</label><textarea id="fq-msg" name="job_notes" placeholder="How many trees, roughly how tall, how close to the house or power lines, access for machinery&hellip;"></textarea></div>
+      <button class="btn-lg btn-solid" type="submit">Send Quote Request</button>
+      <p class="form-note">Prefer to talk? Call <a href="tel:+61423838689" style="font-weight:700;color:var(--accent-dk)">0423 838 689</a></p>
+    </form>
+  </div>
+</div>
+
 <!-- GHL external tracking -->
 <script 
   src="https://link.msgsndr.com/js/external-tracking.js"

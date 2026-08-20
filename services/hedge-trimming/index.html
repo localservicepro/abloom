@@ -184,7 +184,7 @@
     </nav>
     <div class="nav-actions">
       <a class="nav-phone" href="tel:+61423838689">0423 838 689</a>
-      <a class="btn-cta" href="/contact/">Get a Free Quote</a>
+      <a class="btn-cta js-open-quote" href="/contact/">Get a Free Quote</a>
       <button class="nav-burger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -218,7 +218,7 @@
       <h1 class="dsp">Hedge Trimming Canberra — Shaping, Reduction &amp; Maintenance</h1>
       <p class="hero-sub">A sharp hedge frames a property like nothing else — and a neglected one does the opposite. Abloom Tree Care keeps Canberra’s hedges dense, healthy and crisply shaped year-round.</p>
       <div class="hero-cta" style="margin-bottom:0">
-        <a class="btn-lg btn-primary" href="/contact/">Get a Free Quote
+        <a class="btn-lg btn-primary js-open-quote" href="/contact/">Get a Free Quote
           <svg class="tick" viewBox="0 0 24 24" style="stroke:currentColor"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a class="btn-lg btn-ghost" href="tel:+61423838689">Call 0423 838 689</a>
@@ -271,7 +271,7 @@
       <div class="side-card side-cta">
         <h3>Free quote, fast</h3>
         <p>Tell us about the job and we'll come out, assess it properly and give you a fixed price.</p>
-        <a class="btn-lg btn-primary" href="/contact/">Request a Quote</a>
+        <a class="btn-lg btn-primary js-open-quote" href="/contact/">Request a Quote</a>
         <a class="btn-lg btn-ghost" style="margin-top:10px" href="tel:+61423838689">0423 838 689</a>
       </div>
       <div class="side-img side-card" style="padding:0;border:none;background:none">
@@ -315,7 +315,7 @@
       <p>One-off tidy-ups or scheduled maintenance — free hedge trimming quotes across Canberra and the surrounding districts.</p>
     </div>
     <div class="hero-cta rv rv-d1" style="margin:0">
-      <a class="btn-lg btn-primary" href="/contact/">Get a Free Quote</a>
+      <a class="btn-lg btn-primary js-open-quote" href="/contact/">Get a Free Quote</a>
       <a class="btn-lg btn-ghost" href="tel:+61423838689">Call 0423 838 689</a>
     </div>
   </div>
@@ -372,6 +372,51 @@
 </div>
 
 <script src="/assets/js/main.js" defer></script>
+
+<!-- Quote popup -->
+<div class="quote-modal" id="quote-modal" aria-hidden="true">
+  <div class="qm-backdrop" data-close-quote></div>
+  <div class="qm-dialog" role="dialog" aria-modal="true" aria-label="Request a free quote">
+    <button class="qm-close" type="button" data-close-quote aria-label="Close quote form"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <form class="quote-form js-quote" method="get" action="/thank-you/">
+      <h3>Request a free quote</h3>
+      <p class="qf-sub">We'll get back to you fast &mdash; usually the same day.</p>
+      <div class="f-row">
+        <div class="fld"><label for="fq-name">Full name</label><input id="fq-name" type="text" name="full_name" placeholder="Your name" autocomplete="name" required></div>
+        <div class="fld"><label for="fq-phone">Phone</label><input id="fq-phone" type="tel" name="phone" placeholder="Your phone number" autocomplete="tel" required></div>
+      </div>
+      <div class="f-row">
+        <div class="fld"><label for="fq-email">Email</label><input id="fq-email" type="email" name="email" placeholder="you@email.com" autocomplete="email"></div>
+        <div class="fld"><label for="fq-service">Service needed</label>
+          <select id="fq-service" name="service_needed">
+            <option>Tree removal</option>
+            <option>Tree pruning</option>
+            <option>Stump grinding</option>
+            <option>Hedge trimming</option>
+            <option>Emergency / storm damage</option>
+            <option>Arborist report / consultancy</option>
+            <option>Something else</option>
+          </select>
+        </div>
+      </div>
+      <div class="f-row">
+        <div class="fld"><label for="fq-address">Property address</label><input id="fq-address" type="text" name="property_address" placeholder="e.g. 12 Example St, Watson ACT" autocomplete="street-address"></div>
+        <div class="fld"><label for="fq-size">Property size</label>
+          <select id="fq-size" name="property_size">
+            <option>Standard suburban block</option>
+            <option>Small block / townhouse</option>
+            <option>Large block</option>
+            <option>Acreage / rural property</option>
+            <option>Commercial / strata site</option>
+          </select>
+        </div>
+      </div>
+      <div class="fld"><label for="fq-msg">Job notes</label><textarea id="fq-msg" name="job_notes" placeholder="How many trees, roughly how tall, how close to the house or power lines, access for machinery&hellip;"></textarea></div>
+      <button class="btn-lg btn-solid" type="submit">Send Quote Request</button>
+      <p class="form-note">Prefer to talk? Call <a href="tel:+61423838689" style="font-weight:700;color:var(--accent-dk)">0423 838 689</a></p>
+    </form>
+  </div>
+</div>
 
 <!-- GHL external tracking -->
 <script 

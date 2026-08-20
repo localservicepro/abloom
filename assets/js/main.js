@@ -86,9 +86,41 @@
     });
   }
 
-  /* Quote forms submit natively (GET → /thank-you.html) so the GHL
+  /* Quote forms submit natively (GET → /thank-you/) so the GHL
      external-tracking script can capture the submission and sync the
      contact. Do not preventDefault() the submit event here. */
+
+  /* Quote popup — any .js-open-quote trigger opens the modal.
+     Without JS (or on pages without the modal) triggers fall back to
+     their href (/contact/). */
+  var quoteModal = document.getElementById('quote-modal');
+  if (quoteModal) {
+    var lastTrigger = null;
+    var openQuote = function (e) {
+      e.preventDefault();
+      lastTrigger = e.currentTarget;
+      quoteModal.classList.add('open');
+      quoteModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      var first = quoteModal.querySelector('input');
+      if (first) first.focus();
+    };
+    var closeQuote = function () {
+      quoteModal.classList.remove('open');
+      quoteModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastTrigger) lastTrigger.focus();
+    };
+    document.querySelectorAll('.js-open-quote').forEach(function (el) {
+      el.addEventListener('click', openQuote);
+    });
+    quoteModal.querySelectorAll('[data-close-quote]').forEach(function (el) {
+      el.addEventListener('click', closeQuote);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && quoteModal.classList.contains('open')) closeQuote();
+    });
+  }
 
   /* Current year in footer */
   document.querySelectorAll('.js-year').forEach(function (el) {
