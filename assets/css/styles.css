@@ -128,6 +128,8 @@ ul{list-style:none}
 
 /* Subpage hero */
 .page-hero{position:relative;background:var(--canopy);color:#fff;padding:160px 0 72px;overflow:hidden}
+.page-hero .hero-grid{position:relative}
+.page-hero .hero-photo{max-height:440px;object-fit:cover}
 .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 800px 540px at 82% 20%,rgba(74,125,80,.22),transparent 68%),linear-gradient(165deg,var(--canopy) 0%,var(--canopy-2) 100%)}
 .page-hero .wrap{position:relative}
 .page-hero h1{font-size:clamp(31px,4.1vw,50px);margin:18px 0 18px;max-width:860px}

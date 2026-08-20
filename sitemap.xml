@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.abloomtreecare.com.au/</loc><priority>1.0</priority></url>
-  <url><loc>https://www.abloomtreecare.com.au/services/tree-removal.html</loc><priority>0.9</priority></url>
-  <url><loc>https://www.abloomtreecare.com.au/services/tree-pruning.html</loc><priority>0.9</priority></url>
-  <url><loc>https://www.abloomtreecare.com.au/services/stump-grinding.html</loc><priority>0.9</priority></url>
-  <url><loc>https://www.abloomtreecare.com.au/services/hedge-trimming.html</loc><priority>0.9</priority></url>
-  <url><loc>https://www.abloomtreecare.com.au/services/emergency-tree-removal.html</loc><priority>0.9</priority></url>
-  <url><loc>https://www.abloomtreecare.com.au/services/arborist-reports.html</loc><priority>0.9</priority></url>
-  <url><loc>https://www.abloomtreecare.com.au/about.html</loc><priority>0.7</priority></url>
-  <url><loc>https://www.abloomtreecare.com.au/contact.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.abloomtreecare.com.au/services/tree-removal/</loc><priority>0.9</priority></url>
+  <url><loc>https://www.abloomtreecare.com.au/services/tree-pruning/</loc><priority>0.9</priority></url>
+  <url><loc>https://www.abloomtreecare.com.au/services/stump-grinding/</loc><priority>0.9</priority></url>
+  <url><loc>https://www.abloomtreecare.com.au/services/hedge-trimming/</loc><priority>0.9</priority></url>
+  <url><loc>https://www.abloomtreecare.com.au/services/emergency-tree-removal/</loc><priority>0.9</priority></url>
+  <url><loc>https://www.abloomtreecare.com.au/services/arborist-reports/</loc><priority>0.9</priority></url>
+  <url><loc>https://www.abloomtreecare.com.au/about/</loc><priority>0.7</priority></url>
+  <url><loc>https://www.abloomtreecare.com.au/contact/</loc><priority>0.8</priority></url>
 </urlset>
