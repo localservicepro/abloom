@@ -86,21 +86,9 @@
     });
   }
 
-  /* Quote form — no backend wired yet.
-     Set data-endpoint on the <form> (e.g. a Formspree/Basin URL) to POST there.
-     Until then, submissions fall back to a friendly call-us prompt. */
-  document.querySelectorAll('form.js-quote').forEach(function (form) {
-    form.addEventListener('submit', function (e) {
-      var endpoint = form.getAttribute('data-endpoint');
-      if (endpoint) { form.action = endpoint; return; } // let it POST normally
-      e.preventDefault();
-      var ok = form.querySelector('.form-ok');
-      if (ok) {
-        ok.style.display = 'block';
-        ok.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
-      }
-    });
-  });
+  /* Quote forms submit natively (GET → /thank-you.html) so the GHL
+     external-tracking script can capture the submission and sync the
+     contact. Do not preventDefault() the submit event here. */
 
   /* Current year in footer */
   document.querySelectorAll('.js-year').forEach(function (el) {

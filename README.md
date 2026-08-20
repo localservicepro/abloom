@@ -23,9 +23,17 @@ sitemap.xml / robots.txt
 
 No build step — deploy the folder to any static host. Pages use root-absolute paths (`/assets/...`), so serve from the domain root.
 
+## Forms & GHL tracking
+
+Quote forms (index.html + contact.html) are wired for GoHighLevel form-submission capture:
+
+- Field `name` attributes map to GHL contact fields: `full_name`, `email`, `phone`, `service_needed`, `property_address`, `property_size`, `job_notes`.
+- Forms submit through the **native submit event** (no `preventDefault`) via GET to `/thank-you.html`, which personalises itself from the submitted values and then cleans the URL.
+- The GHL external-tracking script (`link.msgsndr.com/js/external-tracking.js`, tracking id `tk_9bf473d65ddc4747a317efd9ea236062`) is included before `</body>` on every page.
+- In GHL: enable **Form Analytics** and **Form Submissions** in Settings, and create the custom fields `service_needed`, `property_address`, `property_size`, `job_notes` so they map onto the contact.
+
 ## Launch checklist
 
-- [ ] **Quote form**: no backend is wired yet. Create a form endpoint (Formspree, Basin, Netlify Forms, etc.) and set it as `data-endpoint="https://..."` on each `<form class="js-quote">` (index.html + contact.html). Until then, submissions show a "call us" fallback message.
 - [ ] **YouTube video**: replace the video placeholder block on `index.html` (marked with `<!-- VIDEO PLACEHOLDER -->`) with the iframe embed — instructions are in the comment.
 - [ ] **Analytics**: add the GA4 tag to all pages; verify the domain in Google Search Console and submit `sitemap.xml`.
 - [ ] **Opening hours**: add `openingHoursSpecification` to the LocalBusiness schema on `index.html` once confirmed with the client (left out rather than guessed).

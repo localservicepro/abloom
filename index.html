@@ -509,18 +509,20 @@
         </div>
       </div>
     </div>
-    <form class="quote-form js-quote" method="post" action="#">
+    <!-- Quote form — fields are named to sync with GHL contact fields:
+         full_name / email / phone / service_needed / property_address / property_size / job_notes.
+         Submits natively (GET) to /thank-you.html so the GHL tracking script captures the submission. -->
+    <form class="quote-form js-quote" method="get" action="/thank-you.html">
       <h3>Request a free quote</h3>
       <p class="qf-sub">We'll get back to you fast — usually the same day.</p>
-      <div class="form-ok" role="status">Thanks! While we connect this form, please call <a href="tel:+61423838689" style="text-decoration:underline">0423 838 689</a> and we'll sort your quote straight away.</div>
       <div class="f-row">
-        <div class="fld"><label for="f-name">Name</label><input id="f-name" type="text" name="name" placeholder="Your name" autocomplete="name" required></div>
+        <div class="fld"><label for="f-name">Full name</label><input id="f-name" type="text" name="full_name" placeholder="Your name" autocomplete="name" required></div>
         <div class="fld"><label for="f-phone">Phone</label><input id="f-phone" type="tel" name="phone" placeholder="Your phone number" autocomplete="tel" required></div>
       </div>
       <div class="f-row">
         <div class="fld"><label for="f-email">Email</label><input id="f-email" type="email" name="email" placeholder="you@email.com" autocomplete="email"></div>
         <div class="fld"><label for="f-service">Service needed</label>
-          <select id="f-service" name="service">
+          <select id="f-service" name="service_needed">
             <option>Tree removal</option>
             <option>Tree pruning</option>
             <option>Stump grinding</option>
@@ -531,8 +533,19 @@
           </select>
         </div>
       </div>
-      <div class="fld"><label for="f-suburb">Suburb</label><input id="f-suburb" type="text" name="suburb" placeholder="e.g. Watson, Queanbeyan, Yass" autocomplete="address-level2"></div>
-      <div class="fld"><label for="f-msg">Job details</label><textarea id="f-msg" name="message" placeholder="How many trees, roughly how tall, how close to the house or power lines, access for machinery…"></textarea></div>
+      <div class="f-row">
+        <div class="fld"><label for="f-address">Property address</label><input id="f-address" type="text" name="property_address" placeholder="e.g. 12 Example St, Watson ACT" autocomplete="street-address"></div>
+        <div class="fld"><label for="f-size">Property size</label>
+          <select id="f-size" name="property_size">
+            <option>Standard suburban block</option>
+            <option>Small block / townhouse</option>
+            <option>Large block</option>
+            <option>Acreage / rural property</option>
+            <option>Commercial / strata site</option>
+          </select>
+        </div>
+      </div>
+      <div class="fld"><label for="f-msg">Job notes</label><textarea id="f-msg" name="job_notes" placeholder="How many trees, roughly how tall, how close to the house or power lines, access for machinery…"></textarea></div>
       <button class="btn-lg btn-solid" type="submit">Send Quote Request</button>
       <p class="form-note">Prefer to talk? Call <a href="tel:+61423838689" style="font-weight:700;color:var(--accent-dk)">0423 838 689</a></p>
     </form>
@@ -591,5 +604,10 @@
 </div>
 
 <script src="/assets/js/main.js" defer></script>
+<!-- GHL external tracking -->
+<script 
+  src="https://link.msgsndr.com/js/external-tracking.js"
+  data-tracking-id="tk_9bf473d65ddc4747a317efd9ea236062">
+</script>
 </body>
 </html>
