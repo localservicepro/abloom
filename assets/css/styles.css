@@ -358,11 +358,6 @@ footer{background:var(--canopy-2);color:#fff}
 .contact-hero-grid{display:grid;grid-template-columns:1fr 460px;gap:56px;align-items:center}
 @media(max-width:1020px){.contact-hero-grid{grid-template-columns:1fr}}
 
-/* Sticky mobile call bar */
-.callbar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:900;background:var(--accent);box-shadow:0 -8px 26px rgba(0,0,0,.22)}
-.callbar a{display:flex;align-items:center;justify-content:center;gap:10px;color:#fff;font-weight:800;font-size:16.5px;padding:15px;letter-spacing:.01em}
-.callbar svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
 /* ---------- Responsive ---------- */
 @media(max-width:1020px){
   .svc-grid{grid-template-columns:1fr 1fr}
@@ -376,8 +371,9 @@ footer{background:var(--canopy-2);color:#fff}
 @media(max-width:860px){
   .wrap,.nav-inner{padding-left:22px;padding-right:22px}
   .nav-main,.nav-phone{display:none}
-  .nav-burger{display:flex;margin-left:auto}
-  .nav-actions .btn-cta{display:none}
+  .nav-actions{margin-left:auto;gap:10px}
+  .nav-actions .btn-cta{font-size:13px;padding:10px 16px}
+  .nav-burger{display:flex}
   .hero{padding:138px 0 76px}
   .page-hero{padding:132px 0 58px}
   .sec{padding:66px 0}
@@ -388,8 +384,6 @@ footer{background:var(--canopy-2);color:#fff}
   .split.rev{direction:ltr}
   .f-row{grid-template-columns:1fr}
   .svc-side{grid-template-columns:1fr}
-  .callbar{display:block}
-  body{padding-bottom:52px}
   .hero-chip.c1{left:8px;bottom:14px}
   .hero-chip.c2{right:8px;top:12px}
 }
