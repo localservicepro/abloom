@@ -38,7 +38,6 @@ Quote forms (`/` + `/contact/`) are wired for GoHighLevel form-submission captur
 
 ## Launch checklist
 
-- [ ] **YouTube video**: replace the video placeholder block on `index.html` (homepage) (marked with `<!-- VIDEO PLACEHOLDER -->`) with the iframe embed — instructions are in the comment.
 - [ ] **Analytics**: add the GA4 tag to all pages; verify the domain in Google Search Console and submit `sitemap.xml`.
 - [ ] **Opening hours**: add `openingHoursSpecification` to the LocalBusiness schema on `index.html` once confirmed with the client (left out rather than guessed).
 - [ ] Confirm the hero/section photo choices with Jake — all photos come from the client's Drive folder and can be swapped in `assets/img/`.
