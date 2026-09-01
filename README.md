@@ -49,8 +49,6 @@ These apply site-wide. Keep them in mind for any future copy:
 
 ## Launch checklist
 
-- [ ] **Homepage video**: supply `assets/video/abloom-tree-care.mp4` (see `assets/video/README.md`). The player and poster are already in place; the YouTube embed was removed at the client's request.
-
 - [ ] **Analytics**: add the GA4 tag to all pages; verify the domain in Google Search Console and submit `sitemap.xml`.
 - [ ] **Opening hours**: add `openingHoursSpecification` to the LocalBusiness schema on `index.html` once confirmed with the client (left out rather than guessed).
 - [ ] **Remaining pages**: the change doc only covered Home, Tree Removal and Tree Pruning. Stump Grinding, Hedge Pruning, Emergency Works, Arborist Consultancy, About and Contact have had the global rules applied but have not been reviewed line by line by the client.

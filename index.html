@@ -330,16 +330,18 @@
       <p class="eyebrow">See Us In Action</p>
       <h2 class="dsp">Watch our arborists at work in the Canberra canopy</h2>
     </div>
-    <!-- Self-hosted video. Drop the encoded file in as /assets/video/abloom-tree-care.mp4
-         (plus an optional .webm) and it plays inline with no YouTube branding or tracking.
-         Until the file is supplied the poster image below stands in. -->
+    <!-- Self-hosted video, no YouTube. Two encodes are shipped: a 720p desktop file
+         and a lighter 480p file for phones. main.js swaps in the mobile source on
+         narrow screens; without JS the desktop file is used, which still plays. -->
     <div class="video-ph rv">
-      <video class="vp-video" controls preload="none" playsinline
-             poster="/assets/img/abloom-climbing-arborist-canberra.webp"
-             title="Abloom Tree Care arborists at work in Canberra">
-        <source src="/assets/video/abloom-tree-care.webm" type="video/webm">
-        <source src="/assets/video/abloom-tree-care.mp4" type="video/mp4">
+      <video class="vp-video" controls muted playsinline preload="none"
+             poster="/assets/img/video-poster.webp"
+             width="1280" height="720"
+             data-src-desktop="/assets/video/abloom-web-desktop.mp4"
+             data-src-mobile="/assets/video/abloom-web-mobile.mp4">
+        <source src="/assets/video/abloom-web-desktop.mp4" type="video/mp4">
         Your browser does not support embedded video.
+        <a href="/assets/video/abloom-web-desktop.mp4">Download the video</a> instead.
       </video>
     </div>
   </div>

@@ -122,6 +122,21 @@
     });
   }
 
+  /* Homepage video: pick the lighter encode on phones.
+     Chosen once at load rather than on resize, so a mid-playback
+     viewport change never interrupts the video. Browsers without JS
+     keep the desktop source declared in the markup. */
+  var vid = document.querySelector('video.vp-video');
+  if (vid) {
+    var wantMobile = window.matchMedia('(max-width: 767px)').matches;
+    var wanted = vid.getAttribute(wantMobile ? 'data-src-mobile' : 'data-src-desktop');
+    var srcEl = vid.querySelector('source');
+    if (wanted && srcEl && srcEl.getAttribute('src') !== wanted) {
+      srcEl.setAttribute('src', wanted);
+      vid.load();
+    }
+  }
+
   /* Current year in footer */
   document.querySelectorAll('.js-year').forEach(function (el) {
     el.textContent = new Date().getFullYear();
