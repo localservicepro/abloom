@@ -2,7 +2,7 @@
 
 Static marketing site for **Abloom Tree Care** (abloomtreecare.com.au), a Canberra arboriculture company servicing the ACT and the surrounding NSW districts.
 
-Positioned as an **arboriculture / tree management** company per the client change doc (26 & 28 Aug 2026 amendments, 74 items applied). Built to the Local Service Pro SEO strategy: keyword-targeted pages, LocalBusiness / Service / FAQPage / BreadcrumbList schema, business name, postal address and phone plus 11 service areas as on-page text, descriptive alt text on every image, self-referencing canonicals, `og:locale` `en_AU`, sitemap and robots.
+Positioned as an **arboriculture / tree management** company per the client change doc (26 & 28 Aug, then 2–5 Sep 2026 amendments; 116 items applied). Built to the Local Service Pro SEO strategy: keyword-targeted pages, LocalBusiness / Service / FAQPage / BreadcrumbList schema, business name, postal address and phone plus 11 service areas as on-page text, descriptive alt text on every image, self-referencing canonicals, `og:locale` `en_AU`, sitemap and robots.
 
 ## Structure
 
@@ -18,6 +18,7 @@ about/index.html / contact/index.html / thank-you/index.html
 assets/css/styles.css               → shared design system
 assets/js/main.js                   → nav, scroll-reveal animations, counters, form
 assets/img/                         → optimized client photos (webp) + logo + favicons
+assets/img/icons/                   → client-supplied service icons (webp, 256px, transparent)
 sitemap.xml / robots.txt
 ```
 
@@ -46,10 +47,13 @@ These apply site-wide. Keep them in mind for any future copy:
 - **Credentials matter.** AQF 5 (consulting) and AQF 3 (climbing) arborists, AS 4373-2007 for pruning, VALID for risk assessments, Urban Forest Act 2023 for ACT tree protection.
 - **No "lopping" as a service.** It appears only on the tree pruning page, where it is explained as poor practice.
 - **No powerline work claims.** Removed site-wide.
+- **Legislation is linked, not just named.** ACT legislation referenced on the arborist consultancy page links to legislation.act.gov.au.
+- **Consulting arborists are AQF Level 5, climbing arborists AQF 3.** Write them out in full rather than abbreviating in body copy.
 
 ## Launch checklist
 
 - [ ] **Analytics**: add the GA4 tag to all pages; verify the domain in Google Search Console and submit `sitemap.xml`.
 - [ ] **Opening hours**: add `openingHoursSpecification` to the LocalBusiness schema on `index.html` once confirmed with the client (left out rather than guessed).
-- [ ] **Remaining pages**: the change doc only covered Home, Tree Removal and Tree Pruning. Stump Grinding, Hedge Pruning, Emergency Works, Arborist Consultancy, About and Contact have had the global rules applied but have not been reviewed line by line by the client.
+- [ ] **About page photo 2**: the change doc asks for `About Photo 2`, which is not in the Drive `New Photos` folder. The existing rigging photo is still in that slot.
 - [ ] Confirm the hero/section photo choices with the client. All photos come from their Drive folder and can be swapped in `assets/img/`.
+- [ ] `assets/video/` still holds the two self-hosted encodes. Nothing references them now that the homepage is back on the YouTube embed — delete them if the client is sure.

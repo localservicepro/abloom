@@ -72,6 +72,7 @@ ul{list-style:none}
 .dd-item:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
 .dd-icon{width:44px;height:44px;border-radius:12px;background:rgba(74,125,80,.1);display:flex;align-items:center;justify-content:center}
 .dd-icon svg{width:20px;height:20px;fill:none;stroke:var(--accent-dk);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.dd-icon img{width:24px;height:24px;object-fit:contain}
 .dd-text strong{display:block;font-size:13.5px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;color:var(--canopy)}
 .dd-text em{display:block;font-style:normal;font-size:13px;color:var(--ink-2);margin-top:1px}
 .nav-actions{display:flex;align-items:center;gap:16px}
@@ -161,6 +162,7 @@ ul{list-style:none}
 .svc:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(20,49,31,.10);border-color:var(--accent)}
 .svc-ic{width:52px;height:52px;border-radius:14px;background:rgba(74,125,80,.11);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
 .svc-ic svg{width:25px;height:25px;fill:none;stroke:var(--accent-dk);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.svc-ic img{width:30px;height:30px;object-fit:contain}
 .svc h3{font-family:'Bricolage Grotesque',sans-serif;font-size:20.5px;font-weight:700;letter-spacing:-0.02em;color:var(--canopy);margin-bottom:10px}
 .svc p{font-size:15px;color:var(--ink-2);flex:1}
 .svc-link{margin-top:18px;font-size:14.5px;font-weight:700;color:var(--accent-dk);display:inline-flex;align-items:center;gap:7px;transition:gap .2s ease}
@@ -202,7 +204,8 @@ ul{list-style:none}
 .check-list{margin:20px 0 26px;display:grid;gap:11px}
 .check-list li{display:flex;gap:11px;align-items:flex-start;font-size:15.5px;color:var(--ink)}
 .sec-dark .check-list li{color:rgba(255,255,255,.9)}
-.check-list .tick{margin-top:4px;stroke:var(--accent-dk)}
+.check-list .tick{margin-top:4px;flex:0 0 auto;stroke:var(--accent-dk)}
+.check-list li>span{min-width:0}
 .sec-dark .check-list .tick{stroke:var(--accent-lt)}
 
 /* Article prose (service pages) */
@@ -293,6 +296,10 @@ ul{list-style:none}
 .faq .faq-a{padding:0 24px 22px;color:var(--ink-2);font-size:15.5px}
 .faq .faq-a p{margin-bottom:10px}
 .faq .faq-a p:last-child{margin-bottom:0}
+.faq .faq-a ul{margin:0 0 10px;display:grid;gap:6px}
+.faq .faq-a ul li{position:relative;padding-left:18px}
+.faq .faq-a ul li::before{content:'';position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.faq .faq-a a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
 
 /* CTA band */
 .cta-band{position:relative;background:var(--canopy);color:#fff;overflow:hidden}
