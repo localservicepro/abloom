@@ -122,6 +122,41 @@
     });
   }
 
+  /* Homepage video facade. The YouTube player is only created on click,
+     so the page loads with no third-party requests or cookies. The
+     privacy-enhanced youtube-nocookie host is used for playback. */
+  var vTrigger = document.querySelector('.js-play-video');
+  if (vTrigger) {
+    var warmed = false;
+    var warm = function () {
+      if (warmed) return;
+      warmed = true;
+      ['https://www.youtube-nocookie.com', 'https://i.ytimg.com'].forEach(function (host) {
+        var l = document.createElement('link');
+        l.rel = 'preconnect'; l.href = host; l.crossOrigin = '';
+        document.head.appendChild(l);
+      });
+    };
+    vTrigger.addEventListener('pointerenter', warm);
+    vTrigger.addEventListener('focus', warm);
+    vTrigger.addEventListener('click', function () {
+      var id = vTrigger.getAttribute('data-yt');
+      var start = vTrigger.getAttribute('data-start') || '0';
+      var frame = document.createElement('iframe');
+      frame.className = 'vp-video';
+      frame.src = 'https://www.youtube-nocookie.com/embed/' + id +
+                  '?autoplay=1&start=' + start + '&rel=0';
+      frame.title = 'Abloom Tree Care arborists at work in Canberra';
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      frame.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      frame.setAttribute('allowfullscreen', '');
+      var shell = vTrigger.parentNode;
+      shell.innerHTML = '';
+      shell.appendChild(frame);
+      frame.focus();
+    });
+  }
+
   /* Current year in footer */
   document.querySelectorAll('.js-year').forEach(function (el) {
     el.textContent = new Date().getFullYear();
