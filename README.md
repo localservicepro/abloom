@@ -74,7 +74,8 @@ These apply site-wide. Keep them in mind for any future copy:
 
 ## Launch checklist
 
-- [ ] **Analytics**: add the GA4 tag to all pages; verify the domain in Google Search Console and submit `sitemap.xml`.
+- [x] **GA4**: measurement id `G-XZVPM07RCF`, installed on all 10 pages. On `/thank-you/` the tag passes an explicit stripped `page_location`, because the quote forms submit by GET and the visitor's name, email and phone are in the query string. Do not remove that override.
+- [ ] **Search Console**: verify the domain and submit `sitemap.xml`.
 - [ ] **Opening hours**: add `openingHoursSpecification` to the LocalBusiness schema on `index.html` once confirmed with the client (left out rather than guessed).
 - [ ] **About page photo 2**: the change doc asks for `About Photo 2`, which is not in the Drive `New Photos` folder. The existing rigging photo is still in that slot.
 - [ ] Confirm the hero/section photo choices with the client. All photos come from their Drive folder and can be swapped in `assets/img/`.
