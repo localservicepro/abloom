@@ -58,7 +58,10 @@ def masters():
 def main():
     made = skipped = 0
     for path, name in masters():
-        im = Image.open(path).convert('RGB')
+        im = Image.open(path)
+        # Never flatten a transparent source: converting to RGB fills the
+        # alpha with black, which is how the logos once ended up in a box.
+        im = im.convert('RGBA' if im.mode in ('RGBA', 'LA', 'P') else 'RGB')
         w, h = im.size
         stem = name[:-5]
         for tw, q in sorted(LADDER.items()):
