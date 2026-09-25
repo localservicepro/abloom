@@ -19,6 +19,7 @@ assets/css/styles.css               → shared design system (source of truth, i
 assets/js/main.js                   → nav, scroll-reveal animations, counters, form, video facade
 assets/fonts/                       → self-hosted Bricolage Grotesque + Public Sans (latin, woff2)
 tools/                              → inline-css.py, build-image-variants.py, build-srcset.py
+api/reviews.js                      → live Google reviews (Vercel serverless function)
 assets/img/                         → optimized client photos (webp) + logo + favicons
 assets/img/icons/                   → client-supplied service icons (webp, 256px, transparent)
 sitemap.xml / robots.txt
@@ -49,6 +50,39 @@ Other deliberate performance choices, in case they look odd:
 - **The homepage video is a click-to-play facade.** Nothing is requested from YouTube, and no third-party cookies are set, until the visitor presses play. Playback then uses `youtube-nocookie.com`. The poster is `assets/img/video-poster.webp`.
 - **The GHL tracking script is `defer`red** so it cannot block the parser. It still runs before `DOMContentLoaded`, which is what form-submission capture needs.
 - **Logos and service icons are sized for their slot** (190x86 and 96x96), not scaled-down large files.
+
+## Live Google reviews
+
+The rating, the review count and the quote cards on the homepage come from the
+Google Places API, so they follow the real profile instead of being retyped.
+`api/reviews.js` calls Google server side, so the key never reaches the
+browser, and the response is cached at the CDN for 6 hours with a 24 hour
+stale-while-revalidate window. That is about 120 API calls a month.
+
+**To switch it on**, set two environment variables in Vercel under
+Project → Settings → Environment Variables, then redeploy:
+
+| Variable | Value |
+| --- | --- |
+| `GOOGLE_PLACES_API_KEY` | A key from Google Cloud with **Places API (New)** enabled. Restrict it to that API. It is only used server side, so it needs no HTTP referrer restriction. |
+| `GOOGLE_PLACE_ID` | The Place ID for Abloom Tree Care. Find it with Google's [Place ID Finder](https://developers.google.com/maps/documentation/places/web-service/place-id). |
+
+Until both are set the endpoint answers `{ "configured": false }` and the page
+keeps showing the reviews written into `index.html`. The same fallback covers a
+failed or slow request, so the section can never render empty.
+
+Two things worth knowing about what Google returns:
+
+- **At most five reviews, and you cannot choose which.** Google decides. If the
+  client wants specific testimonials shown permanently, they have to stay
+  hard-coded in the HTML instead.
+- The rating and total count shown are always the real unfiltered Google
+  figures. The quote cards are limited to 4 and 5 star reviews that have text,
+  which is an ordinary testimonial choice. To show everything Google returns,
+  drop the rating filter in `pickReviews()`.
+
+When live data arrives the script also rewrites `aggregateRating` in the
+JSON-LD, so the structured data cannot drift away from the visible number.
 
 ## Forms & GHL tracking
 

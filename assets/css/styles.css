@@ -290,8 +290,8 @@ ul{list-style:none}
 .agg-rating strong{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;color:var(--canopy)}
 
 /* Reviews */
-.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.rev-grid.four{grid-template-columns:repeat(2,1fr)}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.rev-grid.four{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
 .review{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:14px;transition:transform .25s ease,box-shadow .25s ease}
 .review:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(20,49,31,.09)}
 .stars{color:#E8A33D;font-size:15px;letter-spacing:2px}
@@ -398,7 +398,9 @@ footer{background:var(--canopy-2);color:#fff}
   .svc-grid{grid-template-columns:1fr 1fr}
   .svc-layout{grid-template-columns:1fr}
   .svc-side{position:static;grid-template-columns:1fr 1fr}
-  .side-img{display:none}
+  .svc-side .side-img{grid-column:1 / -1}
+  .side-img{order:-1}
+  .side-img img{width:100%;height:clamp(200px,42vw,320px);object-fit:cover}
   .hero-grid{grid-template-columns:1fr;gap:44px}
   .hero-visual{max-width:560px}
   .ft-top{grid-template-columns:1fr 1fr}
@@ -413,9 +415,14 @@ footer{background:var(--canopy-2);color:#fff}
   .page-hero{padding:132px 0 58px}
   .sec{padding:66px 0}
   .why-grid,.rev-grid,.gallery{grid-template-columns:1fr}
+  #reviews .sec-head{text-align:center;margin-left:auto;margin-right:auto}
+  #reviews .agg-rating{justify-content:center;flex-wrap:wrap}
+  #reviews .rv[style*="margin-top"]{text-align:center}
   .gallery figure{aspect-ratio:16/10}
   .proc,.stats{grid-template-columns:1fr 1fr}
   .split,.areas-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
+  .split-img .badge-card{position:static;inset:auto;margin-top:14px;padding:15px 20px;box-shadow:0 10px 26px rgba(0,0,0,.18)}
+  .split-img .badge-card .b-lbl{font-size:13px}
   .split.rev{direction:ltr}
   .f-row{grid-template-columns:1fr}
   .svc-side{grid-template-columns:1fr}
