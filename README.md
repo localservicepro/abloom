@@ -19,7 +19,6 @@ assets/css/styles.css               → shared design system (source of truth, i
 assets/js/main.js                   → nav, scroll-reveal animations, counters, form, video facade
 assets/fonts/                       → self-hosted Bricolage Grotesque + Public Sans (latin, woff2)
 tools/                              → inline-css.py, build-image-variants.py, build-srcset.py
-api/reviews.js                      → live Google reviews (Vercel serverless function)
 assets/img/                         → optimized client photos (webp) + logo + favicons
 assets/img/icons/                   → client-supplied service icons (webp, 256px, transparent)
 sitemap.xml / robots.txt
@@ -51,39 +50,6 @@ Other deliberate performance choices, in case they look odd:
 - **The GHL tracking script is `defer`red** so it cannot block the parser. It still runs before `DOMContentLoaded`, which is what form-submission capture needs.
 - **Logos and service icons are sized for their slot** (190x86 and 96x96), not scaled-down large files.
 
-## Live Google reviews
-
-The rating, the review count and the quote cards on the homepage come from the
-Google Places API, so they follow the real profile instead of being retyped.
-`api/reviews.js` calls Google server side, so the key never reaches the
-browser, and the response is cached at the CDN for 6 hours with a 24 hour
-stale-while-revalidate window. That is about 120 API calls a month.
-
-**To switch it on**, set two environment variables in Vercel under
-Project → Settings → Environment Variables, then redeploy:
-
-| Variable | Value |
-| --- | --- |
-| `GOOGLE_PLACES_API_KEY` | A key from Google Cloud with **Places API (New)** enabled. Restrict it to that API. It is only used server side, so it needs no HTTP referrer restriction. |
-| `GOOGLE_PLACE_ID` | The Place ID for Abloom Tree Care. Find it with Google's [Place ID Finder](https://developers.google.com/maps/documentation/places/web-service/place-id). |
-
-Until both are set the endpoint answers `{ "configured": false }` and the page
-keeps showing the reviews written into `index.html`. The same fallback covers a
-failed or slow request, so the section can never render empty.
-
-Two things worth knowing about what Google returns:
-
-- **At most five reviews, and you cannot choose which.** Google decides. If the
-  client wants specific testimonials shown permanently, they have to stay
-  hard-coded in the HTML instead.
-- The rating and total count shown are always the real unfiltered Google
-  figures. The quote cards are limited to 4 and 5 star reviews that have text,
-  which is an ordinary testimonial choice. To show everything Google returns,
-  drop the rating filter in `pickReviews()`.
-
-When live data arrives the script also rewrites `aggregateRating` in the
-JSON-LD, so the structured data cannot drift away from the visible number.
-
 ## Forms & GHL tracking
 
 Quote forms (`/` + `/contact/`) are wired for GoHighLevel form-submission capture:
@@ -92,6 +58,29 @@ Quote forms (`/` + `/contact/`) are wired for GoHighLevel form-submission captur
 - Forms submit through the **native submit event** (no `preventDefault`) via GET to `/thank-you/`, which personalises itself from the submitted values and then cleans the URL.
 - The GHL external-tracking script (`link.msgsndr.com/js/external-tracking.js`, tracking id `tk_9bf473d65ddc4747a317efd9ea236062`) is included before `</body>` on every page.
 - In GHL: enable **Form Analytics** and **Form Submissions** in Settings, and create the custom fields `service_needed`, `property_address`, `property_size`, `job_notes` so they map onto the contact.
+
+## Google reviews
+
+The four reviews on the homepage, the 5.0 rating and the review count are
+written into `index.html` and `about/index.html` by hand. They are real Google
+reviews supplied by the client as screenshots, quoted verbatim.
+
+Nothing updates them automatically, so **when the review count changes it has
+to be edited in four places**:
+
+- `index.html` — the rating badge in the hero, the `agg-rating` line in the
+  reviews section, the "Read All 58 Reviews" button, and `reviewCount` in the
+  LocalBusiness JSON-LD
+- `about/index.html` — the rating badge in the hero
+
+Grep for `58` to find them all. Keep the JSON-LD `reviewCount` in step with the
+visible number: Google treats structured data that disagrees with the page as
+a markup problem.
+
+A live version was built and then removed at the client's request (commit
+`04ab9ab`, reverted in the commit that follows it). If it is ever wanted back,
+the Places API returns at most five reviews and does not let you choose which,
+so handpicked testimonials cannot be live.
 
 ## Client copy rules (from the change doc)
 

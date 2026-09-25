@@ -291,7 +291,7 @@ ul{list-style:none}
 
 /* Reviews */
 .rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
-.rev-grid.four{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+.rev-grid.four{grid-template-columns:repeat(2,1fr)}
 .review{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:14px;transition:transform .25s ease,box-shadow .25s ease}
 .review:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(20,49,31,.09)}
 .stars{color:#E8A33D;font-size:15px;letter-spacing:2px}
@@ -415,6 +415,7 @@ footer{background:var(--canopy-2);color:#fff}
   .page-hero{padding:132px 0 58px}
   .sec{padding:66px 0}
   .why-grid,.rev-grid,.gallery{grid-template-columns:1fr}
+  .rev-grid.four{grid-template-columns:1fr}
   #reviews .sec-head{text-align:center;margin-left:auto;margin-right:auto}
   #reviews .agg-rating{justify-content:center;flex-wrap:wrap}
   #reviews .rv[style*="margin-top"]{text-align:center}
